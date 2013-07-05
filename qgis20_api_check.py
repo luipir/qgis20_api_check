@@ -40,14 +40,14 @@ def check(checkList, fileToCheck):
 # thinks to check from this HOWTO
 # http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20
 # http://hub.qgis.org/wiki/quantum-gis/Python_plugin_API_changes_from_18_to_20
-def api_changes_for_version_20(filetocheck):
+def api_changes_for_version_20(fileToCheck):
     # check if file is cpp
 #    if not re.match(".*cpp$", filetocheck):
 #        return    
     print "*** %s:%s - on file: " % (logtail, sys._getframe().f_code.co_name) + filetocheck
 
     # list of sting to check
-    checklist = [("QgsSearchString", "To be removed"),
+    checkList = [("QgsSearchString", "To be removed"),
                  ("QgsSearchTreeNode", "To be removed"),
                  ("QgsRasterBandStats", "Removed histogram related members (moved to QgsRasterHistogram)"),
                  ("bandStatistics", "Removed QgsRasterDataProvider method: replaced by QgsRasterBandStats bandStatistics( int theBandNo, const QgsRectangle & theExtent = QgsRectangle(), int theSampleSize = 0 )"),
@@ -120,15 +120,15 @@ def api_changes_for_version_20(filetocheck):
                  ("setSelectedEpsg", "Deprecated QgsGenericProjectionSelector method: setSelectedEpsg Removed, use other authorities: setSelectedCrsName( QString theName ), setSelectedCrsId( long theID ), setSelectedAuthId( QString authId )"),
                  ("selectedEpsg", "Deprecated QgsGenericProjectionSelector method: selectedEpsg There are other authorities - selectedCrsId() and selectedAuthId()"),
                 ]
-    check(checkLIst, fileToCheck)
+    check(checkList, fileToCheck)
 
-def python_plugin_api_changes_from_18_to_20(filetocheck):
+def python_plugin_api_changes_from_18_to_20(fileToCheck):
 #    if not re.match(".*py$", filetocheck):
 #        return
     print "*** %s:%s - on file: " % (logtail, sys._getframe().f_code.co_name) + filetocheck
 
     # list of sting to check
-    checklist = [("toString()", "To be removed"),
+    checkList = [("toString()", "To be removed"),
                  ("toList()", "To be removed"),
                  ("toInt()", "To be removed"),
                  ("toFloat()", "To be removed"),
@@ -146,7 +146,7 @@ def python_plugin_api_changes_from_18_to_20(filetocheck):
                  ("nextFeature(", "Substitude use of nextFeature(feture) iterating in layer.getFeatures([<QgsFeatureRequest>])"),
                  ("attributeMap", "Instead of use of attributeMap use directory fieldname as in fieldvalue=f[fieldname]"),
                 ]
-    check(checkLIst, fileToCheck)
+    check(checkList, fileToCheck)
     
 def python_plugin_api_changes_from_18_to_20(filetocheck):
 #     if not re.match(".*py$", filetocheck):
@@ -154,8 +154,8 @@ def python_plugin_api_changes_from_18_to_20(filetocheck):
     print "*** %s:%s - on file: " % (logtail, sys._getframe().f_code.co_name) + filetocheck
 
     # list of sting to check
-    checklist = [("iteritems)", "To be removed substitude enumerating or generator")]
-    check(checkLIst, fileToCheck)
+    checkList = [("iteritems)", "To be removed substitude enumerating or generator")]
+    check(checkList, fileToCheck)
 
 def checkapi(filetocheck):
     api_changes_for_version_20(filetocheck)
