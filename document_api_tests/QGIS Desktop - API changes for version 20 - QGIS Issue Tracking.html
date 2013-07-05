@@ -1,0 +1,766 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0063)http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20 -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>QGIS Desktop - API changes for version 20 - QGIS Issue Tracking</title>
+<meta name="description" content="Redmine">
+<meta name="keywords" content="issue,bug,tracker">
+<link rel="shortcut icon" href="http://hub.qgis.org/favicon.ico?1322140996">
+<link href="./QGIS Desktop - API changes for version 20 - QGIS Issue Tracking_files/application.css" media="all" rel="stylesheet" type="text/css">
+
+<script src="./QGIS Desktop - API changes for version 20 - QGIS Issue Tracking_files/prototype.js" type="text/javascript"></script><style type="text/css"></style>
+<script src="./QGIS Desktop - API changes for version 20 - QGIS Issue Tracking_files/effects.js" type="text/javascript"></script>
+<script src="./QGIS Desktop - API changes for version 20 - QGIS Issue Tracking_files/dragdrop.js" type="text/javascript"></script>
+<script src="./QGIS Desktop - API changes for version 20 - QGIS Issue Tracking_files/controls.js" type="text/javascript"></script>
+<script src="./QGIS Desktop - API changes for version 20 - QGIS Issue Tracking_files/application.js" type="text/javascript"></script>
+<link href="./QGIS Desktop - API changes for version 20 - QGIS Issue Tracking_files/jstoolbar.css" media="screen" rel="stylesheet" type="text/css">
+<!--[if IE]>
+    <style type="text/css">
+      * html body{ width: expression( document.documentElement.clientWidth < 900 ? '900px' : '100%' ); }
+      body {behavior: url(/stylesheets/csshover.htc?1198879113);}
+    </style>
+<![endif]-->
+
+<!-- page specific tags -->
+
+  <link href="./QGIS Desktop - API changes for version 20 - QGIS Issue Tracking_files/scm.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body class="theme-Qgis controller-wiki action-index">
+<div id="wrapper">
+<div id="wrapper2">
+<div id="top-menu">
+    <div id="account">
+        <ul><li><a href="http://hub.qgis.org/login" class="login">Sign in</a></li></ul>    </div>
+    
+    <ul><li><a href="http://hub.qgis.org/" class="home">Home</a></li>
+<li><a href="http://hub.qgis.org/projects" class="projects">Projects</a></li>
+<li><a href="http://www.redmine.org/guide" class="help">Help</a></li></ul></div>
+      
+<div id="header">
+    <div id="quick-search">
+        <form action="http://hub.qgis.org/search/index/quantum-gis" method="get">
+        <input name="wiki_pages" type="hidden" value="1">
+        <a href="http://hub.qgis.org/search/index/quantum-gis" accesskey="4">Search</a>:
+        <input accesskey="f" class="small" id="q" name="q" size="20" type="text">
+        </form>
+        
+    </div>
+    
+    <h1><a href="http://hub.qgis.org/projects/qgis?jump=wiki" class="root">QGIS</a> » QGIS Desktop</h1>
+    
+    
+    <div id="main-menu">
+        <ul><li><a href="http://hub.qgis.org/projects/quantum-gis" class="overview">Overview</a></li>
+<li><a href="http://hub.qgis.org/projects/quantum-gis/activity" class="activity">Activity</a></li>
+<li><a href="http://hub.qgis.org/projects/quantum-gis/roadmap" class="roadmap">Roadmap</a></li>
+<li><a href="http://hub.qgis.org/projects/quantum-gis/issues" class="issues">Issues</a></li>
+<li><a href="http://hub.qgis.org/projects/quantum-gis/wiki" class="wiki selected">Wiki</a></li>
+<li><a href="http://hub.qgis.org/projects/quantum-gis/repository" class="repository">Repository</a></li></ul>
+    </div>
+    
+</div>
+
+<div class="" id="main">
+    <div id="sidebar">        
+        
+  
+<h3>Wiki</h3>
+
+<a href="http://hub.qgis.org/">Start page</a><br>
+<a href="http://hub.qgis.org/projects/quantum-gis/wiki/Page_index">Index by title</a><br>
+<a href="http://hub.qgis.org/projects/quantum-gis/wiki/Date_index">Index by date</a><br>
+
+
+        
+    </div>
+    
+    <div id="content">
+				
+        <div class="contextual">
+
+
+<span id="watcher"></span>
+
+
+
+
+
+
+<a href="http://hub.qgis.org/projects/quantum-gis/wiki/API_changes_for_version_20/history" class="icon icon-history">History</a>
+</div>
+
+
+
+
+
+<div class="wiki">
+  <h1 id="API-changes-for-version-20">API changes for version 2.0<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#API-changes-for-version-20" class="wiki-anchor">¶</a></h1>
+
+
+	<p>This is a list of changes for 2.0 which are breaking the API compatibility. It also serves as a basic guide on how to port plugins from 1.x to 2.0</p>
+
+
+	<h2 id="Full-diff">Full diff<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#Full-diff" class="wiki-anchor">¶</a></h2>
+
+
+	<p>See this full <a href="http://diffchecker.com/EzEHRS38" class="external">diff between the Python API 1.8 compared to the master branch</a></p>
+
+
+	<p>How to update (relative to your build directory):<br></p><pre>sort ../python/qsci_apis/PyQGIS-1.8.api &gt;/tmp/previous.api
+sort python/qsci_apis/PyQGIS.api &gt;/tmp/current.api
+diff /tmp/previous.api /tmp/current.api
+</pre><p></p>
+
+
+	<h2 id="Core-library">Core library<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#Core-library" class="wiki-anchor">¶</a></h2>
+
+
+Removed classes:
+	<ul>
+	<li>QgsSearchString, QgsSearchTreeNode: old code should be migrated to use QgsExpression</li>
+	</ul>
+
+
+	<h3 id="QgsRasterBandStats">QgsRasterBandStats<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgsRasterBandStats" class="wiki-anchor">¶</a></h3>
+
+
+	<p>Removed histogram related members (moved to QgsRasterHistogram)</p>
+
+
+	<h3 id="QgsRasterDataProvider">QgsRasterDataProvider<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgsRasterDataProvider" class="wiki-anchor">¶</a></h3>
+
+
+Removed methods:
+	<ul>
+	<li>QgsRasterBandStats bandStatistics( int theBandNo )<br>  replaced by QgsRasterBandStats bandStatistics( int theBandNo, const QgsRectangle &amp; theExtent = QgsRectangle(), int theSampleSize = 0 )</li>
+	</ul>
+
+
+	<ul>
+	<li>void populateHistogram( int theBandNoInt, QgsRasterBandStats &amp; theBandStats, int theBinCountInt = RASTER_HISTOGRAM_BINS, bool theIgnoreOutOfRangeFlag = true, bool theThoroughBandScanFlag = false )<br>  replaced by virtual QgsRasterHistogram histogram( int theBandNo, int theBinCount = 0, double theMinimum = std::numeric_limits&lt;double&gt;::quiet_NaN(), double theMaximum = std::numeric_limits&lt;double&gt;::quiet_NaN(), const QgsRectangle &amp; theExtent = QgsRectangle(), int theSampleSize = 0, bool theIncludeOutOfRange = false );</li>
+	</ul>
+
+
+	<ul>
+	<li>bool identify( const QgsPoint &amp; point, QMap&lt;QString, QString&gt;&amp; results )</li>
+	</ul>
+
+
+	<ul>
+	<li>QMap&lt;int, void *&gt; identify( const QgsPoint &amp; point )</li>
+	</ul>
+
+
+	<ul>
+	<li>QString identifyAsText( const QgsPoint&amp; point )</li>
+	</ul>
+
+
+	<ul>
+	<li>QString identifyAsHtml( const QgsPoint&amp; point )</li>
+	</ul>
+
+
+	<ul>
+	<li>virtual void addLayers( const QStringList &amp; layers, const QStringList &amp; styles = QStringList() ) = 0;</li>
+		<li>virtual QStringList supportedImageEncodings() = 0;</li>
+		<li>virtual QString imageEncoding() const = 0;</li>
+		<li>virtual void setImageEncoding( const QString &amp; mimeType ) = 0;</li>
+		<li>virtual void setImageCrs( const QString &amp; crs ) = 0;<br>  WMS provider relic.</li>
+	</ul>
+
+
+	<p>New methods:</p>
+
+
+	<ul>
+	<li>QMap&lt;int, QVariant&gt; identify( const QgsPoint &amp; thePoint, IdentifyFormat theFormat, const QgsRectangle &amp;theExtent = QgsRectangle(), int theWidth = 0, int theHeight = 0 )</li>
+	</ul>
+
+
+	<h3 id="QgsSvgMarkerSymbolLayerV2">QgsSvgMarkerSymbolLayerV2<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgsSvgMarkerSymbolLayerV2" class="wiki-anchor">¶</a></h3>
+
+
+	<p>Look at <a href="http://hub.qgis.org/projects/quantum-gis/repository/revisions/dffae7962fc2dbcd540fc717daabc3acf74ba556" class="changeset" title="move svg utils functions to the symbollayerv2utils class">dffae7962f</a>.</p>
+
+
+The following methods was moved from QgsSvgMarkerSymbolLayerV2 to QgsSymbolLayerV2Utils:
+	<ul>
+	<li>QStringList listSvgFiles()</li>
+		<li>QStringList listSvgFilesAt( QString directory )</li>
+		<li>QString symbolNameToPath( QString name )</li>
+		<li>QString symbolPathToName( QString path )</li>
+	</ul>
+
+
+	<p>Thus to port 1.x plugins, use the corresponding methods of QgsSymbolLayerV2Utils</p>
+
+
+	<h2 id="Main-application">Main application<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#Main-application" class="wiki-anchor">¶</a></h2>
+
+
+	<h3 id="QgisApp">QgisApp<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgisApp" class="wiki-anchor">¶</a></h3>
+
+
+Removed methods:
+	<ul>
+	<li>addRasterLayer( QString const &amp;rasterLayerPath, QString const &amp;baseName, QString const &amp;providerKey, QStringList const &amp; layers, QStringList const &amp; styles, QString const &amp;format, QString const &amp;crs )<br>  This method was a hack for WMS used before true raster providers. Use QgsDataSourceURI to create encoded URI and addRasterLayer( QString const &amp; uri, QString const &amp; baseName, QString const &amp; providerKey );</li>
+	</ul>
+
+
+	<ul>
+	<li>QgsContrastEnhancement* rasterContrastEnhancement( QgsRasterLayer* rlayer, int band, bool visibleAreaOnly = false ) const</li>
+	</ul>
+
+
+	<ul>
+	<li>void histogramStretch( bool visibleAreaOnly = false )<br>  Changed to void histogramStretch( bool visibleAreaOnly = false, QgsRasterLayer::ContrastEnhancementLimits theLimits = QgsRasterLayer::ContrastEnhancementMinMax )</li>
+	</ul>
+
+
+	<h3 id="QgisAppInterface">QgisAppInterface<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgisAppInterface" class="wiki-anchor">¶</a></h3>
+
+
+Removed methods:
+	<ul>
+	<li>addRasterLayer( const QString&amp; url, const QString&amp; baseName, const QString&amp; providerKey, const QStringList&amp; layers, const QStringList&amp; styles, const QString&amp; format, const QString&amp; crs )<br>  Replaced by addRasterLayer( const QString&amp; url, const QString&amp; baseName, const QString&amp; providerKey)</li>
+	</ul>
+
+
+	<h3 id="QgsRasterLayer">QgsRasterLayer<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgsRasterLayer" class="wiki-anchor">¶</a></h3>
+
+
+Removed methods:
+	<ul>
+	<li>QgsRasterLayer( int dummy, const QString &amp; baseName = QString(), const QString &amp; path = QString(), const QString &amp; providerLib = QString(), const QStringList &amp; layers = QStringList(), const QStringList &amp; styles = QStringList(), const QString &amp; format = QString(), const QString &amp; crs = QString() );<br>  Replaced by QgsRasterLayer( const QString &amp; uri, const QString &amp; baseName, const QString &amp; providerKey, bool loadDefaultStyleFlag = true );</li>
+	</ul>
+
+
+	<ul>
+	<li>setDataProvider( QString const &amp; provider, QStringList const &amp; layers, QStringList const &amp; styles, QString const &amp; format, QString const &amp; theCrs, bool loadDefaultStyleFlag )<br>  Replaced by setDataProvider( QString const &amp; provider)</li>
+	</ul>
+
+
+	<ul>
+	<li>setDataProvider( QString const &amp; provider, QStringList const &amp; layers, QStringList const &amp; styles, QString const &amp; format, QString const &amp; theCrs )<br>  Replaced by setDataProvider( QString const &amp; provider)</li>
+	</ul>
+
+
+	<ul>
+	<li>bool hasCachedHistogram( int theBandNoInt, int theBinCountInt = RASTER_HISTOGRAM_BINS )<br>  Use provider hasHistogram()</li>
+	</ul>
+
+
+	<ul>
+	<li>void populateHistogram( int theBandNoInt, int theBinCountInt = RASTER_HISTOGRAM_BINS, bool theIgnoreOutOfRangeFlag = true, bool theThoroughBandScanFlag = false )<br>  Use provider histogram()</li>
+	</ul>
+
+
+	<ul>
+	<li>bool hasStatistics( int theBandNoInt )<br>  Use provider hasStatistics()</li>
+	</ul>
+
+
+	<ul>
+	<li>const  QgsRasterBandStats bandStatistics( int )<br>  Use provider bandsStatistics()</li>
+	</ul>
+
+
+	<ul>
+	<li>const  QgsRasterBandStats bandStatistics( const QString &amp; )<br>  Use provider bandsStatistics()</li>
+	</ul>
+
+
+	<ul>
+	<li>QList&lt;QgsColorRampShader::ColorRampItem&gt;* QgsRasterLayer::colorTable( int theBandNo )<br>  Changed to QList&lt;QgsColorRampShader::ColorRampItem&gt; QgsRasterLayer::colorTable( int theBandNo )</li>
+	</ul>
+
+
+	<ul>
+	<li>QString grayBandName() const<br>  Use QgsRasterRenderer and subclasses to get/set how the raster is displayed ( QgsRasterLayer::renderer() )</li>
+	</ul>
+
+
+	<ul>
+	<li>QString greenBandName() const<br>  Use QgsRasterRenderer and subclasses to get/set how the raster is displayed ( QgsRasterLayer::renderer() )</li>
+	</ul>
+
+
+	<ul>
+	<li>bool invertHistogram() const<br>  Use QgsRasterRenderer and subclasses to get/set how the raster is displayed ( QgsRasterLayer::renderer() )</li>
+	</ul>
+
+
+	<ul>
+	<li>QgsRasterTransparency* rasterTransparency()<br>  Use QgsRasterRenderer and subclasses to get/set how the raster is displayed ( QgsRasterLayer::renderer() )</li>
+	</ul>
+
+
+	<ul>
+	<li>QgsRasterShader* rasterShader()<br>  Use QgsRasterRenderer and subclasses to get/set how the raster is displayed ( QgsRasterLayer::renderer() )</li>
+	</ul>
+
+
+	<ul>
+	<li>QString redBandName() const<br>  Use QgsRasterRenderer and subclasses to get/set how the raster is displayed ( QgsRasterLayer::renderer() )</li>
+	</ul>
+
+
+	<ul>
+	<li>QString transparentBandName() const<br>  Use QgsRasterRenderer and subclasses to get/set how the raster is displayed ( QgsRasterLayer::renderer() )</li>
+	</ul>
+
+
+	<ul>
+	<li>bool isGrayMinimumMaximumEstimated() const<br>  Functions related to statistics are now in QgsRasterDataProvider</li>
+	</ul>
+
+
+	<ul>
+	<li>void setGrayMinimumMaximumEstimated( bool theBool )<br>  Functions related to statistics are now in QgsRasterDataProvider</li>
+	</ul>
+
+
+	<ul>
+	<li>bool isRGBMinimumMaximumEstimated() const<br>  Functions related to statistics are now in QgsRasterDataProvider</li>
+	</ul>
+
+
+	<ul>
+	<li>void setRGBMinimumMaximumEstimated( bool theBool )<br>  Functions related to statistics are now in QgsRasterDataProvider</li>
+	</ul>
+
+
+	<ul>
+	<li>bool identify( const QgsPoint &amp; point, QMap&lt;QString, QString&gt;&amp; results )<br>  identify method available in QgsRasterDataProvider</li>
+	</ul>
+
+
+	<ul>
+	<li>bool identify( const QgsPoint &amp; point, QMap&lt;int, QString&gt;&amp; results )<br>  identify method available in QgsRasterDataProvider</li>
+	</ul>
+
+
+	<ul>
+	<li>QString identifyAsText( const QgsPoint &amp; point )<br>  identify method available in QgsRasterDataProvider</li>
+	</ul>
+
+
+	<ul>
+	<li>QString identifyAsHtml( const QgsPoint &amp; point )<br>  identify method available in QgsRasterDataProvider</li>
+	</ul>
+
+
+	<ul>
+	<li>static void buildSupportedRasterFileFilter( QString &amp; fileFilters )<br>  Use QgsProviderRegistry::instance()-&gt;fileRasterFilters()</li>
+	</ul>
+
+
+	<h3 id="Layer-Init-Function">Layer Init Function<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#Layer-Init-Function" class="wiki-anchor">¶</a></h3>
+
+
+	<p>Init function is now passed a reference to the QgsFeature and QgsVectorLayer rather then a feature and layer id.</p>
+
+
+	<p>Example:</p>
+
+
+<pre><code class="python syntaxhl"><span class="CodeRay"><span class="no">1</span> <span class="kw">def</span> <span class="fu">myFunction</span>(dialog, layer, feature):
+<span class="no">2</span>     id = layer.id()
+<span class="no">3</span>     name = layer.name
+<span class="no">4</span>     geom = feature.geometry()
+<span class="no">5</span>     <span class="c"># etc</span>
+</span></code></pre>
+
+	<h2 id="Print-composer">Print composer<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#Print-composer" class="wiki-anchor">¶</a></h2>
+
+
+	<h3 id="QgsComposerView">QgsComposerView<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgsComposerView" class="wiki-anchor">¶</a></h3>
+
+
+Removed methods:
+	<ul>
+	<li>addComposerLabel</li>
+		<li>addComposerMap</li>
+		<li>addComposerScaleBar</li>
+		<li>addComposerLegend</li>
+		<li>addComposerPicture</li>
+		<li>addComposerShape</li>
+		<li>addComposerTable</li>
+		<li>pushAddRemoveCommand</li>
+		<li>sendItemAddedSignal</li>
+	</ul>
+
+
+Removed signals:
+	<ul>
+	<li>composerLabelAdded</li>
+		<li>composerMapAdded</li>
+		<li>composerScaleBarAdded</li>
+		<li>composerLegendAdded</li>
+		<li>composerPictureAdded</li>
+	</ul>
+
+
+	<p>To port 1.x plugins, use the corresponding methods and signals of QgsComposition</p>
+
+
+	<h3 id="QgsComposerMap">QgsComposerMap<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgsComposerMap" class="wiki-anchor">¶</a></h3>
+
+
+Removed Methods:
+	<ul>
+	<li>setGridAnnotationPosition( GridAnnotationPosition p )<br>Replaced by setGridAnnotationPosition( GridAnnotationPosition p, QgsComposerMap::Border border )</li>
+		<li>gridAnnotationPosition()<br>Replaced by gridAnnotationPosition( QgsComposerMap::Border border )</li>
+		<li>setGridAnnotationDirection( GridAnnotationDirection d )<br>Replaced by setGridAnnotationDirection( GridAnnotationDirection d, QgsComposerMap::Border border )</li>
+		<li>gridAnnotationDirection()<br>Replaced by gridAnnotationDirection( QgsComposerMap::Border border )</li>
+	</ul>
+
+
+	<h2 id="PostrgeSQL-data-provider">PostrgeSQL data provider<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#PostrgeSQL-data-provider" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Look at <a href="http://hub.qgis.org/projects/quantum-gis/repository/revisions/ce4fc1daa5b49d053790b258d1361a2203282453" class="changeset" title="[FEATURE][API] postgres provider refactoring: - use m prefix for member variables and s prefix fo...">ce4fc1daa5</a></p>
+
+
+	<h2 id="Deprecated-methods">Deprecated methods<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#Deprecated-methods" class="wiki-anchor">¶</a></h2>
+
+
+	<p>See also <a href="http://hub.qgis.org/projects/quantum-gis/repository/revisions/5e45a22d061942f9e4cdaf09416dd5f3ee659b13" class="changeset" title="remove deprecated methods from API">5e45a22d06</a></p>
+
+
+	<h3 id="QgsProjectionSelector">QgsProjectionSelector<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgsProjectionSelector" class="wiki-anchor">¶</a></h3>
+
+
+	<ul>
+	<li>selectedEpsg()<br>Removed, there are other authorities - use selectedAuthId()</li>
+		<li>setSelectedEpsg( long epsg )<br>Removed, there are other authorities - so not always defined. Use setSelectedAuthId( QString authId )</li>
+	</ul>
+
+
+	<h3 id="QgsMapCanvasMap">QgsMapCanvasMap<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgsMapCanvasMap" class="wiki-anchor">¶</a></h3>
+
+
+	<ul>
+	<li>pixmap()<br>Removed, use paintDevice()</li>
+	</ul>
+
+
+	<h3 id="QgsMapCanvas">QgsMapCanvas<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgsMapCanvas" class="wiki-anchor">¶</a></h3>
+
+
+	<ul>
+	<li>canvasPixmap<br>Removed, use canvasPaintDevice()</li>
+	</ul>
+
+
+	<h3 id="QgsGenericProjectionSelector">QgsGenericProjectionSelector<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgsGenericProjectionSelector" class="wiki-anchor">¶</a></h3>
+
+
+	<ul>
+	<li>selectedProj4String</li>
+		<li>setSelectedEpsg<br>Removed, use other authorities: setSelectedCrsName( QString theName ), setSelectedCrsId( long theID ), setSelectedAuthId( QString authId )</li>
+		<li>selectedEpsg<br>There are other authorities - selectedCrsId() and selectedAuthId()</li>
+	</ul>
+
+
+	<h3 id="QgisAppInterface">QgisAppInterface<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgisAppInterface" class="wiki-anchor">¶</a></h3>
+
+
+Removed:
+	<ul>
+	<li>actionCapturePoint</li>
+		<li>actionCaptureLine</li>
+		<li>actionCapturePolygon</li>
+		<li>actionAddVertex</li>
+		<li>actionDeleteVertex</li>
+		<li>actionMoveVertex</li>
+		<li>actionFileSeparator1</li>
+		<li>actionFileSeparator2</li>
+		<li>actionFileSeparator3</li>
+		<li>actionFileSeparator4</li>
+		<li>actionEditSeparator1</li>
+		<li>actionEditSeparator2</li>
+		<li>actionViewSeparator1</li>
+		<li>actionViewSeparator2</li>
+		<li>actionViewSeparator3</li>
+		<li>actionLayerSeparator1</li>
+		<li>actionLayerSeparator2</li>
+		<li>actionLayerSeparator3</li>
+		<li>actionPluginSeparator1</li>
+		<li>actionPluginSeparator2</li>
+		<li>actionPluginPythonSeparator</li>
+		<li>actionSettingsSeparator1</li>
+		<li>actionHelpSeparator1</li>
+		<li>actionHelpSeparator2</li>
+	</ul>
+
+
+Replaced:
+	<ul>
+	<li>actionAddIsland<br>Removed, use actionAddPart()</li>
+		<li>refreshLegend( QgsMapLayer *l )<br>Removed, use QgsLegendInterface::refreshLayerSymbology</li>
+	</ul>
+
+
+	<h3 id="QgsVectorDataProvider">QgsVectorDataProvider<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgsVectorDataProvider" class="wiki-anchor">¶</a></h3>
+
+
+	<ul>
+	<li>updateFeatureCount<br>Does nothing useful, removed</li>
+		<li>addAttributes( const QMap&lt;QString, QString&gt; &amp;attributes )<br>Replaced by addAttributes( const QList&lt;QgsField&gt; &amp;attributes )</li>
+		<li>supportedNativeTypes()<br>Replaced by nativeTypes()</li>
+	</ul>
+
+
+	<h3 id="QgsGeometry">QgsGeometry<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgsGeometry" class="wiki-anchor">¶</a></h3>
+
+
+	<ul>
+	<li>addIsland( const QList&lt;QgsPoint&gt; &amp;points )<br>Replaced by addPart( const QList&lt;QgsPoint&gt; &amp;points )</li>
+	</ul>
+
+
+	<h3 id="QgsMaplayer">QgsMaplayer<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgsMaplayer" class="wiki-anchor">¶</a></h3>
+
+
+	<ul>
+	<li>getLayerID()<br>Replaced by id()</li>
+		<li>srs()<br>Replaced by crs()</li>
+	</ul>
+
+
+	<h3 id="QgsRectangle">QgsRectangle<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgsRectangle" class="wiki-anchor">¶</a></h3>
+
+
+	<ul>
+	<li>expand( double scaleFactor, const QgsPoint *c = 0 )<br>Replaced by scale( double scaleFactor, const QgsPoint *c = 0 )</li>
+	</ul>
+
+
+	<h3 id="QgsComposerMultiFrame">QgsComposerMultiFrame<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgsComposerMultiFrame" class="wiki-anchor">¶</a></h3>
+
+
+	<ul>
+	<li>nFrames<br>Use frameCount() instead</li>
+	</ul>
+
+
+	<h3 id="QgsComposerItem">QgsComposerItem<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgsComposerItem" class="wiki-anchor">¶</a></h3>
+
+
+	<ul>
+	<li>frame()<br>Replaced with hasFrame()</li>
+		<li>setFrame( bool drawFrame )<br>Replaced with setFrameEnabled( bool drawFrame )</li>
+	</ul>
+
+
+	<h3 id="QgsComposerMap">QgsComposerMap<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgsComposerMap" class="wiki-anchor">¶</a></h3>
+
+
+	<p><strong>draw( QPainter *painter, const QgsRectangle&amp; extent, const QSize&amp; size, int dpi )<br>Replaced by draw( QPainter *painter, const QgsRectangle&amp; extent, const QSizeF&amp; size, double dpi, double</strong> forceWidthScale = 0 )</p>
+
+
+	<h3 id="QgsOverlayObject">QgsOverlayObject<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgsOverlayObject" class="wiki-anchor">¶</a></h3>
+
+
+	<ul>
+	<li>getGeosGeometry()<br>Use geometry() and QgsGeometry::asGeos instead</li>
+		<li>releaseGeosGeometry( GEOSGeometry *the_geom )<br>This method actually does nothing, removed</li>
+	</ul>
+
+
+	<h3 id="QgsCoordinateReferenceSystem">QgsCoordinateReferenceSystem<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgsCoordinateReferenceSystem" class="wiki-anchor">¶</a></h3>
+
+
+*createFromEpsg( const long theEpsg )<br>Use createFromOgcWmsCrs()
+	<ul>
+	<li>equals( QString theProj4String )<br>Removed because the same proj.4 string not necessarily means the same CRS</li>
+		<li>epsg()<br>There are other authorities, use authid() instead</li>
+	</ul>
+
+
+	<h3 id="QgsDistanceArea">QgsDistanceArea<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgsDistanceArea" class="wiki-anchor">¶</a></h3>
+
+
+	<ul>
+	<li>setProjectionsEnabled( bool flag )<br>Replaced by setEllipsoidalMode( bool flag )</li>
+		<li>hasCrsTransformEnabled()<br>Replaced by ellipsoidalEnabled()</li>
+		<li>setSourceEpsgCrsId( long epsgId )<br>There are other authorities, use setSourceAuthid()</li>
+	</ul>
+
+
+	<h3 id="QgsMapRenderer">QgsMapRenderer<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgsMapRenderer" class="wiki-anchor">¶</a></h3>
+
+
+	<ul>
+	<li>distanceArea()<br>Removed</li>
+		<li>setDestinationSrs( const QgsCoordinateReferenceSystem&amp; srs )<br>Replaced by setDestinationCrs( const QgsCoordinateReferenceSystem&amp; srs )</li>
+		<li>destinationSrs()<br>Replaced by destinationCrs()</li>
+	</ul>
+
+
+	<h3 id="QgsApplication">QgsApplication<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgsApplication" class="wiki-anchor">¶</a></h3>
+
+
+	<ul>
+	<li>developerPath()<br>Removed, images are not provided anymore</li>
+		<li>svgPath()<br>Use svgPaths() instead</li>
+	</ul>
+
+
+	<h3 id="Qgis">Qgis<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#Qgis" class="wiki-anchor">¶</a></h3>
+
+
+	<ul>
+	<li>GEOWkt<br>Replaced by GEOWKT</li>
+	</ul>
+
+
+	<h3 id="QgsVectorFileWriter">QgsVectorFileWriter<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgsVectorFileWriter" class="wiki-anchor">¶</a></h3>
+
+
+	<ul>
+	<li>writeAsShapefile( QgsVectorLayer* layer, const QString&amp; shapefileName, const QString&amp; fileEncoding, const QgsCoordinateReferenceSystem <strong>destCRS, bool onlySelected = false, QString *errorMessage = 0, const QStringList &amp;datasourceOptions = QStringList(), const QStringList &amp;layerOptions = QStringList())<br>Removed, use writeAsVectorFormat( QgsVectorLayer</strong> layer, const QString&amp; fileName, const QString&amp; fileEncoding, const QgsCoordinateReferenceSystem *destCRS, const QString&amp; driverName = "ESRI Shapefile", bool onlySelected = false, QString *errorMessage = 0, const QStringList &amp;datasourceOptions = QStringList(), const QStringList &amp;layerOptions = QStringList(), bool skipAttributeCreation = false, QString *newFilename = 0))</li>
+	</ul>
+
+
+	<h3 id="QgsRasterLayer">QgsRasterLayer<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgsRasterLayer" class="wiki-anchor">¶</a></h3>
+
+
+	<ul>
+	<li>providerKey()<br>Replaced with providerType()</li>
+		<li>thumbnailAsPixmap()<br>Use previewAsPixmap()</li>
+	</ul>
+
+
+Removed:
+	<ul>
+	<li>usesProvider()</li>
+		<li>legendAsPixmap()</li>
+		<li>legendAsPixmap( bool )</li>
+		<li>legendAsPixmap( int theLabelCount )</li>
+		<li>setBlueBandName( const QString &amp; theBandName )</li>
+		<li>setColorShadingAlgorithm( QgsRasterLayer::ColorShadingAlgorithm theShaderAlgorithm )</li>
+		<li>setColorShadingAlgorithm(  QString theShaderAlgorithm )</li>
+		<li>setGrayBandName( const QString &amp; theBandName )</li>
+		<li>setGreenBandName( const QString &amp; theBandName )</li>
+		<li>setMaximumValue( QString theBand, double theValue, bool theGenerateLookupTableFlag = true )</li>
+		<li>setMinimumValue( unsigned int theBand, double theValue, bool theGenerateLookupTableFlag = true )</li>
+		<li>setMinimumValue( QString theBand, double theValue, bool theGenerateLookupTableFlag = true )</li>
+		<li>setRasterShaderFunction( QgsRasterShaderFunction* theFunction )</li>
+		<li>setRedBandName( const QString &amp; theBandName )</li>
+		<li>setTransparentBandName( const QString &amp; theBandName )</li>
+	</ul>
+
+
+	<h3 id="QgsMapLayerRegistry">QgsMapLayerRegistry<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgsMapLayerRegistry" class="wiki-anchor">¶</a></h3>
+
+
+	<ul>
+	<li>addMapLayer( QgsMapLayer * theMapLayer, bool theEmitSignal = true )<br>Use addMapLayers( QList&lt;QgsMapLayer *&gt; theMapLayers, bool theEmitSignal = true )</li>
+		<li>removeMapLayer( QString theLayerId, bool theEmitSignal = true )<br>Use removeMapLayers( QStringList theLayerIds, bool theEmitSignal = true )</li>
+	</ul>
+
+
+	<h3 id="QgsLabel">QgsLabel<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgsLabel" class="wiki-anchor">¶</a></h3>
+
+
+	<ul>
+	<li>renderLabel(QPainter* painter, const QgsRectangle&amp; viewExtent, QgsCoordinateTransform* coordinateTransform, const QgsMapToPixel *transform, QgsFeature &amp;feature, bool selected, QgsLabelAttributes *classAttributes = 0, double sizeScale = 1.0, double rasterScaleFactor = 1.0)<br>Removed</li>
+		<li>layerAttributes()<br>Use attributes() rather</li>
+	</ul>
+
+
+	<h3 id="QgsVectorLayer">QgsVectorLayer<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgsVectorLayer" class="wiki-anchor">¶</a></h3>
+
+
+	<ul>
+	<li>updateFeatureCount()<br>Does nothing, removed</li>
+		<li>addIsland( const QList&lt;QgsPoint&gt;&amp; ring )<br>Replaced by addPart( const QList&lt;QgsPoint&gt;&amp; ring )</li>
+		<li>addAttribute( QString name, QString type )<br>Replaced by addAttribute( const QgsField &amp;field )</li>
+	</ul>
+
+
+	<h3 id="QgsFeature">QgsFeature<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgsFeature" class="wiki-anchor">¶</a></h3>
+
+
+	<p>see <a class="external" href="http://lists.osgeo.org/pipermail/qgis-developer/2013-February/024278.html">http://lists.osgeo.org/pipermail/qgis-developer/2013-February/024278.html</a></p>
+
+
+	<h3 id="QgsAttributeAction-ul-redsh107-lidoActiondoAction-int-index-const-QgsAttributeMap-xxattributes-int-defaultValueIndex-0-void-executePython-const-QString-xx-0-br-Removedli-ul">QgsAttributeAction
+	<ul>
+	<li>doActiondoAction( int index, const QgsAttributeMap &amp;attributes, int defaultValueIndex = 0, void ( *executePython )( const QString &amp; ) = 0 )<br>Removed</li>
+	</ul><a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgsAttributeAction-ul-redsh107-lidoActiondoAction-int-index-const-QgsAttributeMap-xxattributes-int-defaultValueIndex-0-void-executePython-const-QString-xx-0-br-Removedli-ul" class="wiki-anchor">¶</a></h3>
+
+
+	<h3 id="QgsProject">QgsProject<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#QgsProject" class="wiki-anchor">¶</a></h3>
+
+
+	<ul>
+	<li>readListEntry( const QString &amp; scope, const QString &amp; key, QStringList def = QStringList(), bool * ok = 0 ) const;<br>Default argument added before ok.</li>
+	</ul>
+
+
+	<h2 id="Best-practises-for-Plugin-developers">Best practises for Plugin developers<a href="http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20#Best-practises-for-Plugin-developers" class="wiki-anchor">¶</a></h2>
+
+
+	<p>During a transition time, a plugin should work with both the old and new API.<br>This can be achieved with exception handling in an import clause e.g.:</p>
+
+
+<pre><code class="python syntaxhl"><span class="CodeRay"><span class="no">1</span> <span class="kw">try</span>:
+<span class="no">2</span>     <span class="kw">from</span> <span class="ic">qgis.core</span> <span class="kw">import</span> <span class="ic">newFunctionName</span> <span class="kw">as</span> newFunctionName
+<span class="no">3</span> <span class="kw">except</span>:
+<span class="no">4</span>     <span class="kw">from</span> <span class="ic">qgis.core</span> <span class="kw">import</span> <span class="ic">oldFunctionName</span> <span class="kw">as</span> newFunctionName
+</span></code></pre>
+
+	<p>Following the <a href="http://en.wikipedia.org/wiki/Duck_typing#In_Python" class="external">duck typing</a> scheme of dynamic langagues, this could also be done before calling the function:</p>
+
+
+<pre><code class="python syntaxhl"><span class="CodeRay"><span class="no">1</span> <span class="kw">if</span> <span class="pd">hasattr</span>(composerView, <span class="s"><span class="dl">"</span><span class="k">addComposerShape</span><span class="dl">"</span></span>):
+<span class="no">2</span>     composerView.addComposerShape(item)
+<span class="no">3</span> <span class="kw">else</span>:
+<span class="no">4</span>     composition.addComposerShape(item)
+</span></code></pre>
+
+	<p>Another approach is to test qgis version and use appropriate API functions:</p>
+
+
+<pre><code class="python syntaxhl"><span class="CodeRay"><span class="no">1</span> <span class="kw">if</span> QGis.QGIS_VERSION_INT &lt; <span class="i">10900</span>:
+<span class="no">2</span>     composerView.addComposerShape(item)
+<span class="no">3</span> <span class="kw">else</span>:
+<span class="no">4</span>     composition.addComposerShape(item)
+</span></code></pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+				<div style="clear:both;"></div>
+    </div>
+</div>
+
+<div id="ajax-indicator" style="display:none;"><span>Loading...</span></div>
+	
+<div id="footer">
+  <div class="bgl"><div class="bgr">
+    Powered by <a href="http://www.redmine.org/">Redmine</a> © 2006-2010 Jean-Philippe Lang
+  </div></div>
+</div>
+</div>
+</div>
+
+
+
+</body></html>
