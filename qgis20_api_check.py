@@ -29,8 +29,8 @@ def grep(filetogrep, pattern):
         return [match for match in matches if match[0] != -1]
 
 def check(checkList, fileToCheck):
-    for pattern, message in checklist:
-        matches = grep(filetocheck, ".*%s.*"%re.escape(pattern) )
+    for pattern, message in checkList:
+        matches = grep(fileToCheck, ".*%s.*"%re.escape(pattern) )
         if matches:
             for lineindex, match, line in matches:
                 if match:
@@ -42,9 +42,9 @@ def check(checkList, fileToCheck):
 # http://hub.qgis.org/wiki/quantum-gis/Python_plugin_API_changes_from_18_to_20
 def api_changes_for_version_20(fileToCheck):
     # check if file is cpp
-#    if not re.match(".*cpp$", filetocheck):
+#    if not re.match(".*cpp$", fileToCheck):
 #        return    
-    print "*** %s:%s - on file: " % (logtail, sys._getframe().f_code.co_name) + filetocheck
+    print "*** %s:%s - on file: " % (logtail, sys._getframe().f_code.co_name) + fileToCheck
 
     # list of sting to check
     checkList = [("QgsSearchString", "To be removed"),
@@ -123,9 +123,9 @@ def api_changes_for_version_20(fileToCheck):
     check(checkList, fileToCheck)
 
 def python_plugin_api_changes_from_18_to_20(fileToCheck):
-#    if not re.match(".*py$", filetocheck):
+#    if not re.match(".*py$", fileToCheck):
 #        return
-    print "*** %s:%s - on file: " % (logtail, sys._getframe().f_code.co_name) + filetocheck
+    print "*** %s:%s - on file: " % (logtail, sys._getframe().f_code.co_name) + fileToCheck
 
     # list of sting to check
     checkList = [("toString()", "To be removed"),
@@ -148,19 +148,19 @@ def python_plugin_api_changes_from_18_to_20(fileToCheck):
                 ]
     check(checkList, fileToCheck)
     
-def python_plugin_api_changes_from_18_to_20(filetocheck):
-#     if not re.match(".*py$", filetocheck):
+def python_generic_things_to_check(fileToCheck):
+#     if not re.match(".*py$", fileToCheck):
 #         return
-    print "*** %s:%s - on file: " % (logtail, sys._getframe().f_code.co_name) + filetocheck
+    print "*** %s:%s - on file: " % (logtail, sys._getframe().f_code.co_name) + fileToCheck
 
     # list of sting to check
     checkList = [("iteritems)", "To be removed substitude enumerating or generator")]
     check(checkList, fileToCheck)
 
-def checkapi(filetocheck):
-    api_changes_for_version_20(filetocheck)
-    python_plugin_api_changes_from_18_to_20(filetocheck)
-    python_generic_things(filetocheck)
+def checkapi(fileToCheck):
+    api_changes_for_version_20(fileToCheck)
+    python_plugin_api_changes_from_18_to_20(fileToCheck)
+    python_generic_things_to_check(fileToCheck)
     
     
 def main(argv):
