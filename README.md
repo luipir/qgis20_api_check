@@ -1,5 +1,6 @@
-simple python script to grep on a list of strings.
-Result show code line to modify due to api changes and a suggestion for the change.
+Simple python script to grep on a list of strings.
+
+Result shows code line to modify due to api changes adding suggestions for the change.
 
 modification has been brutally cut and pasted from these two websites:
 
