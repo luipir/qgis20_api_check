@@ -138,6 +138,7 @@ def python_plugin_api_changes_from_18_to_20(fileToCheck):
                  ("toPyObject()", "To be removed"),
                  ("QVariant(", "To be removed and used native type"),
                  ("QString(", "To be removed"),
+                 ("QString.", "To be removed"),
                  ("QSettings", "Check The type of QSettings return values is specified in the QSettings.value() call. More info:"),
                  ("QStringList", "Raplace QStringList (and related method) with native python string "),
                  ("QList", "QList Use native list method"),
