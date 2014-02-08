@@ -128,7 +128,10 @@ def python_plugin_api_changes_from_18_to_20(fileToCheck):
     print "*** %s:%s - on file: " % (logtail, sys._getframe().f_code.co_name) + fileToCheck
 
     # list of sting to check
-    checkList = [("toString()", "To be removed"),
+    checkList = [("toBool()", "To be removed due belongs to QString"),
+                 ("toString()", "To be removed"),
+                 ("endsWith(", "QString method to substitute with endswith(...)"),
+                 ("startsWith(", "QString method to substitute with startswith(...)"),
                  ("toList()", "To be removed"),
                  ("toInt()", "To be removed"),
                  ("toFloat()", "To be removed"),
