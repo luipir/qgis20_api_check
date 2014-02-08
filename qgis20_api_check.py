@@ -34,7 +34,7 @@ def check(checkList, fileToCheck):
         if matches:
             for lineindex, match, line in matches:
                 if match:
-                    print "LINE %d found \"%s\" IN: %s" % (lineindex, pattern, line[:-1])
+                    print "LINE %d found \"%s\" IN: %s" % (lineindex+1, pattern, line[:-1])
                     print "\tTODO: %s \n" % message
     
 # thinks to check from this HOWTO
