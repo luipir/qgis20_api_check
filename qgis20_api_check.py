@@ -132,6 +132,8 @@ def python_plugin_api_changes_from_18_to_20(fileToCheck):
                  ("toString()", "To be removed"),
                  ("endsWith(", "QString method to substitute with endswith(...)"),
                  ("startsWith(", "QString method to substitute with startswith(...)"),
+                 ("toUpper(", "QString method to substitute with upper(...)"),
+                 ("toLower(", "QString method to substitute with lower(...)"),
                  ("toList()", "To be removed"),
                  ("toInt()", "To be removed"),
                  ("toFloat()", "To be removed"),
