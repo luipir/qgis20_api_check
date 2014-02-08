@@ -139,6 +139,7 @@ def python_plugin_api_changes_from_18_to_20(fileToCheck):
                  ("toFloat()", "To be removed"),
                  ("toDouble()", "To be removed"),
                  ("toStringList()", "To be removed"),
+                 ("<<", "Related to QStringList - To be supstituted with .append(...) of a python list"),
                  ("toByteArray()", "To be removed"),
                  ("toPyObject()", "To be removed"),
                  ("QVariant(", "To be removed and used native type"),
