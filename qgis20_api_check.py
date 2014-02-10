@@ -137,6 +137,7 @@ def python_plugin_api_changes_from_18_to_20(fileToCheck):
                  (".remove(", "QString method to substitute with re.sub(...)"),
                  (".replace(", "QString method to substitute with re.sub(...)"),
                  (".mid(", "QString method to substitute with str indexing e.g [start:stop]"),
+                 (".isEmpty(", "QString method to substitute with == \"\" "),
                  ("toList()", "To be removed"),
                  ("toInt()", "To be removed"),
                  ("toFloat()", "To be removed"),
