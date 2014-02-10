@@ -138,6 +138,8 @@ def python_plugin_api_changes_from_18_to_20(fileToCheck):
                  (".replace(", "QString method to substitute with re.sub(...)"),
                  (".mid(", "QString method to substitute with str indexing e.g [start:stop]"),
                  (".isEmpty(", "QString method to substitute with == \"\" "),
+                 (".isValid(", "QString method to substitute with != None"),
+                 (".join(\"", "QString join method to substitute with the str one \"sep\".join(list) "),
                  ("toList()", "To be removed"),
                  ("toInt()", "To be removed"),
                  ("toFloat()", "To be removed"),
