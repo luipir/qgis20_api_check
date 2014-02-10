@@ -154,7 +154,7 @@ def python_plugin_api_changes_from_18_to_20(fileToCheck):
                  ("emit(SIGNAL", "Substitute SIGNAL emit with <signalname> = QtCore.pyqtSignal(<paramtype>) in self.<signalname>.emit(<paramtype parameters>)"),
                  ("QObject.connect(self.iface,SIGNAL", "Substitute QObject.connect(self.iface,SIGNAL('projectRead ()'),self.readSettings)  in self.iface.projectRead.connect(self.readSettings)"),
                  ("nextFeature(", "Substitude use of nextFeature(feture) iterating in layer.getFeatures([<QgsFeatureRequest>])"),
-                 ("attributeMap", "Instead of use of attributeMap use directory fieldname as in fieldvalue=f[fieldname]"),
+                 ("attributeMap", "Instead of use of attributeMap use directory fieldname as in fieldvalue=f[fieldname] or f[index]"),
                  ("select(", "Instead use QgsVectorLayer.getFeatures(QgsFeatureRequest(...))"),
                  ("featureAtId(", "Instead use QgsVectorLayer.getFeatures(QgsFeatureRequest(...))"),
                 ]
