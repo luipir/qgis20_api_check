@@ -40,7 +40,7 @@ def check(checkList, fileToCheck):
 # thinks to check from this HOWTO
 # http://hub.qgis.org/wiki/quantum-gis/API_changes_for_version_20
 # http://hub.qgis.org/wiki/quantum-gis/Python_plugin_API_changes_from_18_to_20
-def api_changes_for_version_20(fileToCheck):
+def api_changes_for_verQStringsion_20(fileToCheck):
     # check if file is cpp
 #    if not re.match(".*cpp$", fileToCheck):
 #        return    
@@ -134,6 +134,9 @@ def python_plugin_api_changes_from_18_to_20(fileToCheck):
                  ("startsWith(", "QString method to substitute with startswith(...)"),
                  ("toUpper(", "QString method to substitute with upper(...)"),
                  ("toLower(", "QString method to substitute with lower(...)"),
+                 (".remove(", "QString method to substitute with re.sub(...)"),
+                 (".replace(", "QString method to substitute with re.sub(...)"),
+                 (".mid(", "QString method to substitute with str indexing e.g [start:stop]"),
                  ("toList()", "To be removed"),
                  ("toInt()", "To be removed"),
                  ("toFloat()", "To be removed"),
