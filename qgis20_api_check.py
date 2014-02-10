@@ -215,7 +215,7 @@ def main(argv):
             # do check
             for file in files:
                 found = False
-                excludefilelist = [".pdf", ".PDF", ".jpeg", ".jpg", ".zip", ".gif", ".png", ".qml", "_ui.py"]
+                excludefilelist = [".pdf", ".PDF", ".jpeg", ".jpg", ".zip", ".gif", ".png", ".qml", "_ui.py", ".pyc"]
                 for end in excludefilelist:
                     if file.endswith( end ):
                         found = True
