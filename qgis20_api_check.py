@@ -141,6 +141,7 @@ def python_plugin_api_changes_from_18_to_20(fileToCheck):
                  (".isValid(", "QString method to substitute with != None"),
                  (".join(\"", "QString join method to substitute with the str one \"sep\".join(list) "),
                  (".toUtf8(", "QString method. Use str.encode or directory unicode type or bytearray"),
+                 (".simplified(", "QString method add a combination on trim and substitution with re"),
                  ("toList()", "To be removed"),
                  ("toInt()", "To be removed"),
                  ("toFloat()", "To be removed"),
