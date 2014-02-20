@@ -47,7 +47,10 @@ def api_changes_for_version_20(fileToCheck):
     print "*** %s:%s - on file: " % (logtail, sys._getframe().f_code.co_name) + fileToCheck
 
     # list of sting to check
-    checkList = [("QgsSearchString", "To be removed"),
+    checkList = [("QgsRenderer", "To be substituted with differet classes as QgsMapRenderer and QgsRendererContext"),
+                 (".setDestinationSrs(", "QgsRenderer method subst with setDestinationCrs(..) of QgsMapRenderer"),
+                 (".destinationSrs(", "QgsRenderer method subst with destinationSrs(..) of QgsMapRenderer"),
+                 ("QgsSearchString", "To be removed"),
                  ("QgsSearchTreeNode", "To be removed"),
                  ("QgsRasterBandStats", "Removed histogram related members (moved to QgsRasterHistogram)"),
                  ("bandStatistics", "Removed QgsRasterDataProvider method: replaced by QgsRasterBandStats bandStatistics( int theBandNo, const QgsRectangle & theExtent = QgsRectangle(), int theSampleSize = 0 )"),
@@ -148,6 +151,7 @@ def python_plugin_api_changes_from_18_to_20(fileToCheck):
                  ("toDouble()", "To be removed"),
                  ("toStringList()", "To be removed"),
                  ("<<", "Related to QStringList - To be supstituted with .append(...) of a python list"),
+                 (".removeAt(", "Related to QStringList - To be supstituted with del <list>[index] or other ways"),
                  ("toByteArray()", "To be removed"),
                  ("toPyObject()", "To be removed"),
                  ("QVariant(", "To be removed and used native type"),
