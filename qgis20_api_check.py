@@ -164,6 +164,7 @@ def python_plugin_api_changes_from_18_to_20(fileToCheck):
                  ("QObject.connect(self.iface,SIGNAL", "Substitute QObject.connect(self.iface,SIGNAL('projectRead ()'),self.readSettings)  in self.iface.projectRead.connect(self.readSettings)"),
                  ("nextFeature(", "Substitude use of nextFeature(feture) iterating in layer.getFeatures([<QgsFeatureRequest>])"),
                  ("attributeMap", "Instead of use of attributeMap use directory fieldname as in fieldvalue=f[fieldname] or f[index]"),
+                 ("setAttributeMap", "Instead of use of setAttributeMap setAttributes(QgsAttributes) where QgsAttributes is a list of names"),
                  ("select(", "Instead use QgsVectorLayer.getFeatures(QgsFeatureRequest(...))"),
                  ("featureAtId(", "Instead use QgsVectorLayer.getFeatures(QgsFeatureRequest(...))"),
                 ]
